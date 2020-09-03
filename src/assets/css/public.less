@@ -1,0 +1,118 @@
+@import './color.less';
+
+/* 颜色 */
+// 字体颜色
+.color-red {
+  color: @color-red;
+}
+.color-blue {
+  color: @color-blue;
+}
+.color-green {
+  color: @color-green;
+}
+.color-yellow {
+  color: @color-yellow;
+}
+.color-cyan {
+  color: @color-cyan;
+}
+.color-gray {
+  color: @color-gray;
+}
+.color-main {
+  color: @color-main;
+}
+// 背景
+.bg-red {
+  background-color: @color-red;
+}
+.bg-blue {
+  background-color: @color-blue;
+}
+.bg-green {
+  background-color: @color-green;
+}
+.bg-yellow {
+  background-color: @color-yellow;
+}
+.bg-cyan {
+  background-color: @color-cyan;
+}
+.bg-gray {
+  background-color: @color-gray;
+}
+.bg-main {
+  background-color: @color-main;
+}
+/* 字体相关 */
+.font-s {
+  font-size: 12px;
+}
+.font-m {
+  font-size: 14px;
+}
+.font-l {
+  font-size: 16px;
+}
+.font-xl {
+  font-size: 18px;
+}
+/* 其他 */
+.tap {
+  transition: all 0.3s;
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.9);
+  }
+}
+.hide {
+  display: none!important;
+}
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-fill-mode: ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+img[lazy='loaded'] {
+  .fadeIn;
+}
+
+/* 复写vant */
+// 全屏tabcontent
+.van-toast--top{
+  top: 200px;
+}
+.full-screen-tab {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  .van-tabs__content {
+    flex: 1;
+    height: 1px;
+  }
+  .van-tab__pane {
+    height: 100%;
+  }
+}
+.scroll-list {
+  height: 100%;
+  overflow-y: auto;
+}
+.list-content {
+  height: 100%;
+  .van-pull-refresh__track {
+    height: 100%;
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "漫画哦",
+  "short_name": "漫画哦",
+  "theme_color": "#fff",
+  "background_color": "#ffffff",
+  "start_url": ".",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "img/icons/256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "img/icons/128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "img/icons/192.png",
+      "type": "img/image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/icons/144.png",
+      "type": "img/image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "img/icons/512.png",
+      "type": "img/image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
