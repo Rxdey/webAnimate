@@ -11,7 +11,7 @@ import store from './store';
 import loading from './components/vue-loading/index';
 import { changeTitle, rxLocalStorage } from './common/utils';
 import transferDom from './common/mixins/transfer-dom';
-import ripple from './components/vue-ripple/index';
+import ripple from './components/vue-ripple';
 import '@/assets/css/reset.less';
 import './registerServiceWorker';
 

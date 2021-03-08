@@ -1,6 +1,6 @@
 <template>
   <div class="rx-ripple" ref="ripple">
-    <div class="rx-ripple--container" ref="container" @contextmenu="contextmenu">
+    <div class="rx-ripple--container" ref="container" @touchstart.stop="handleClick" @touchend="handleUp">
       <transition-group tag="div" name="ripple">
         <template v-for="(item, index) in rippleList">
           <div class="rx-ripple__ripple" @touchend="handleUp" :style="{
@@ -16,40 +16,27 @@
   </div>
 </template>
 <script>
-// @touchstart.stop="handleClick" @touchend="handleUp" @mousedown="handleClick" @mouseup="handleUp"
-
-const isTouch = 'ontouchstart' in window;
-const touchSart = isTouch ? 'touchstart' : 'mousedown';
-const touchEnd = isTouch ? 'touchend' : 'mouseup';
-const touchMove = isTouch ? 'touchmove' : 'mousemove';
-
 export default {
   name: 'ripple',
-  data() {
+  data () {
     return {
       rippleList: [],
       width: 500
     };
   },
-  mounted() {
-    this.$refs.container.addEventListener(touchSart, this.handleClick.bind(this), false);
-    this.$refs.container.addEventListener(touchEnd, this.handleUp.bind(this), false);
-    this.$refs.container.addEventListener(touchMove, this.handleMove.bind(this), false);
+  mounted () {
   },
   methods: {
-    handleUp(e) {
+    handleUp (e) {
+      e.stopPropagation();
       setTimeout(() => {
         this.rippleList.splice(0, 1);
       }, 100);
     },
-    handleMove(e) {
-      this.stopListenerMove();
-      this.handleUp(e);
-    },
-    handleClick(e) {
-      // e.stopPropagation();
+    handleClick (e) {
+      e.stopPropagation();
       // 判断是否为touch事件
-      this.startListenerMove();
+      const isTouch = 'ontouchstart' in window;
       if (isTouch && !e.touches) return;
       const width = this.$refs.container.clientWidth;
       const height = this.$refs.container.clientHeight;
@@ -63,17 +50,6 @@ export default {
         top: offsetTop - (rippleWidth / 2),
         left: offsetLeft - (rippleWidth / 2)
       });
-    },
-    contextmenu(e) {
-      window.event.returnValue = false;
-      this.handleUp(e);
-      return false;
-    },
-    stopListenerMove() {
-      this.$refs.container.removeEventListener(touchMove, this.handleMove.bind(this), false);
-    },
-    startListenerMove() {
-      this.$refs.container.addEventListener(touchMove, this.handleMove.bind(this), false);
     }
   }
 };
@@ -94,7 +70,7 @@ export default {
     opacity: 0.1;
     transform: scale(1);
     transition: opacity 2.5s cubic-bezier(0.23, 1, 0.32, 1),
-      transform 2s cubic-bezier(0.23, 1, 0.32, 1);
+      transform 1.5s cubic-bezier(0.23, 1, 0.32, 1);
     user-select: none;
   }
 }

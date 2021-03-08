@@ -37,7 +37,7 @@
           {{!isRecord ? '追漫' : '已追'}}
         </template>
       </div>
-      <div class="read-button bg-blue" v-ripple @click="handleRead(last_chapter_name)">
+      <div class="read-button g-blue" v-ripple @click="handleRead(last_chapter_name)">
         <loading v-if="recordLoading" :size="16" />
         <template v-else>
           {{!last_chapter_name || last_chapter_name === '未看' ? '开始阅读' : '续看('+ last_chapter_name+')'}}
@@ -112,6 +112,7 @@ export default {
     },
     // 订阅
     async handleRecord (state = 1) {
+      if (!this.chapterList.length) return;
       const data = {
         manhua: this.id,
         state,
@@ -126,6 +127,7 @@ export default {
     },
     // 点击章节
     handleRead (val = this.last_chapter_name) {
+      if (!this.chapterList.length) return;
       if (val === '...') {
         this.popupShow = true;
         return;

@@ -12,8 +12,8 @@
         <span class="history__child tap font-s" v-for="(item, index) in history" :key="index" @click="onSearch(item)">{{item}}</span>
       </div>
     </div>
-    <div class="search-result" v-if="isSearch" v-loading="loading">
-      <vertical-card v-for="(card, index) in searchResult" :key="index" :data="card" :url="`/detail/${card.id}`"/>
+    <div class="search-result clearfix" v-if="isSearch" v-loading="loading">
+      <vertical-card v-for="(card, index) in searchResult" :key="index" :data="card" :url="`/detail/${card.id}`" :keyWord="search"/>
     </div>
   </div>
 </template>
