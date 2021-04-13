@@ -134,7 +134,7 @@ export default {
       }
       this.last_chapter_name = val;
       const active = val === '未看' || !val ? (this.sort ? this.chapterLimit[this.chapterLimit.length - 1] : this.chapterLimit[0]) : val;
-      this.$router.push(`/reader/${this.id}?chapter=${active}`);
+      this.$router.push(`/reader/${this.id}?chapter=${active}&chs=${this.animaInfo.chapter}`);
     },
     // 排序
     handleSort () {

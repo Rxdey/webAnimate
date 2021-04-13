@@ -21,7 +21,8 @@ export default new Router({
       meta: {
         title: '漫画哦',
         keepAlive: true,
-        auth: true
+        auth: true,
+        themeColor: '#fff'
       }
     },
     {
@@ -31,7 +32,8 @@ export default new Router({
       meta: {
         title: '发现',
         keepAlive: true,
-        auth: true
+        auth: true,
+        themeColor: '#fff'
       }
     },
     {
@@ -41,7 +43,8 @@ export default new Router({
       meta: {
         title: '我的',
         keepAlive: true,
-        auth: true
+        auth: true,
+        themeColor: '#fff'
       }
     },
     {
@@ -49,7 +52,8 @@ export default new Router({
       name: 'Login',
       component: () => import('@/views/User/Login.vue'),
       meta: {
-        title: '登录'
+        title: '登录',
+        themeColor: '#fff'
       }
     },
     {
@@ -58,7 +62,8 @@ export default new Router({
       component: () => import('@/views/Detail/Detail.vue'),
       meta: {
         title: '详情',
-        auth: true
+        auth: true,
+        themeColor: '#fff'
       }
     },
     {
@@ -67,7 +72,8 @@ export default new Router({
       component: () => import('@/views/Detail/Reader.vue'),
       meta: {
         title: '阅读',
-        auth: true
+        auth: true,
+        themeColor: '#000'
       }
     },
     {

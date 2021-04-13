@@ -1,7 +1,7 @@
 <template>
   <div class="reader">
     <loading class="re-loading" v-if="!loading" vertical type="spinner">装载中，等一下...</loading>
-    <swiper ref="swiper" v-if="loading" :list="list" :direction="direction" :active="active" @change="onChange" @click="showSetting = false" />
+    <swiper ref="swiper" v-if="loading" :list="list" :direction="direction" :active="active" @change="onChange" @click="showSetting = !showSetting" />
     <div class="tool-bar">
       <span class="set" @click.stop="showSetting = !showSetting">
         <rx-icon icon="icon-shezhi" />
@@ -100,9 +100,9 @@ export default {
     },
     // 获取章节图片
     async getImageUrl () {
-      const res = await this.$model.getImageUrl({ id: this.id });
+      const res = await this.$model.getImageUrl({ id: this.id, ch: 1, chs: this.$route.query.chs });
       if (!res.state) {
-        this.$$dialog.alert({
+        this.$dialog.alert({
           title: '提示',
           message: res.msg
         });

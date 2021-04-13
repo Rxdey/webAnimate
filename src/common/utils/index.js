@@ -15,13 +15,13 @@ export const random = (length = 5) => {
  * localStorage 同域名增加pathname前缀
  */
 export const rxLocalStorage = {
-  removeItemList (array = []) {
+  removeItemList(array = []) {
     const tag = `${window.location.pathname}__UNLIMIT__`;
     array.map(item => {
       localStorage.removeItem(tag + item);
     });
   },
-  clear () {
+  clear() {
     const length = localStorage.length;
     const tag = `${window.location.pathname}__UNLIMIT__`;
     const REG = new RegExp(`\\${tag}`);
@@ -33,15 +33,15 @@ export const rxLocalStorage = {
       localStorage.removeItem(item);
     });
   },
-  getItem (name) {
+  getItem(name) {
     const tag = `${window.location.pathname}__UNLIMIT__`;
     return localStorage.getItem(tag + name);
   },
-  setItem (name, data) {
+  setItem(name, data) {
     const tag = `${window.location.pathname}__UNLIMIT__`;
     localStorage.setItem(tag + name, data);
   },
-  removeItem (name) {
+  removeItem(name) {
     const tag = `${window.location.pathname}__UNLIMIT__`;
     localStorage.removeItem(tag + name);
   }
@@ -51,13 +51,13 @@ export const rxLocalStorage = {
  * sessionStorage 同域名增加pathname前缀
  */
 export const rxSessionStorage = {
-  removeItemList (array = []) {
+  removeItemList(array = []) {
     const tag = `${window.location.pathname}__UNLIMIT__`;
     array.map(item => {
       sessionStorage.removeItem(tag + item);
     });
   },
-  clear () {
+  clear() {
     const length = sessionStorage.length;
     const tag = `${window.location.pathname}__UNLIMIT__`;
     const REG = new RegExp(`\\${tag}`);
@@ -69,15 +69,15 @@ export const rxSessionStorage = {
       sessionStorage.removeItem(item);
     });
   },
-  getItem (name) {
+  getItem(name) {
     const tag = `${window.location.pathname}__UNLIMIT__`;
     return sessionStorage.getItem(tag + name);
   },
-  setItem (name, data) {
+  setItem(name, data) {
     const tag = `${window.location.pathname}__UNLIMIT__`;
     sessionStorage.setItem(tag + name, data);
   },
-  removeItem (name) {
+  removeItem(name) {
     const tag = `${window.location.pathname}__UNLIMIT__`;
     sessionStorage.removeItem(tag + name);
   }
@@ -114,6 +114,10 @@ export const changeTitle = title => {
     };
     document.body.appendChild(i);
   }
+};
+export const changeTheme = (color) => {
+  const viewport = document.querySelector('meta[name=theme-color]');
+  viewport.setAttribute('content', color || '#fff');
 };
 // 日期格式化
 export const dateFormat = (date, fmt = 'YYYY-MM-DD HH:mm:ss') => {
@@ -246,7 +250,7 @@ export const debounce = (func, wait) => {
   }
   wait = +wait || 0;
   let timeId = null;
-  return function() {
+  return function () {
     const self = this;
     // eslint-disable-next-line prefer-rest-params
     const args = arguments;

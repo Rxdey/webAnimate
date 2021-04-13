@@ -4,7 +4,7 @@
       <div class="user-head">
         <img v-lazy="'/img/icons/icon.png'" alt="headimage">
       </div>
-      <div class="user-name">正在施工</div>
+      <div class="user-name">不想施工了！</div>
     </div>
     <div class="user--list">
       <van-cell-group>

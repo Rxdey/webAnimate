@@ -9,7 +9,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import loading from './components/vue-loading/index';
-import { changeTitle, rxLocalStorage } from './common/utils';
+import { changeTitle, changeTheme, rxLocalStorage } from './common/utils';
 import transferDom from './common/mixins/transfer-dom';
 import ripple from './components/vue-ripple';
 import '@/assets/css/reset.less';
@@ -51,6 +51,7 @@ router.beforeEach((to, from, next) => {
 });
 router.beforeResolve((to, from, next) => {
   changeTitle(to.meta.title);
+  changeTheme(to.meta.themeColor);
   // window.pending.forEach((item, index) => {
   //   item.cancel();
   //   window.pending.splice(index, 1);
