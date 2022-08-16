@@ -18,12 +18,12 @@
             <span @click="handleChangeDirection(item.tag)" :class="{active: direction === item.tag}" v-for="(item, index) in directionOption" :key="index">{{item.name}}</span>
           </div>
         </div>
-        <!-- <div class="setting--bar">
+        <div class="setting--bar">
           <div class="title">使用代理</div>
           <div class="body">
             <checkbox class="check" v-model="proxy" @change="onProxyChange" shape="square"></checkbox>
           </div>
-        </div> -->
+        </div>
       </div>
     </transition>
   </div>

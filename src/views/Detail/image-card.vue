@@ -1,7 +1,7 @@
 <template>
   <div class="image-block swiper-zoom-container">
     <p class="index" v-if="loading || error">{{data.index}}</p>
-    <img v-if="!error && !loading" :src="proxy ? getImage(data.url) :data.url" alt="">
+    <img v-if="!error && !loading" :src="getImage(data.url)" alt="">
     <div class="load-error tap" v-if="error" @click="reload">
       <p class="retry">
         <loading v-if="errorLoading" size="18" />

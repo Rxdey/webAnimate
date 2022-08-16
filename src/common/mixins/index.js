@@ -1,9 +1,13 @@
 import keepAliveVal from '@/router/isKeepAlive';
+import { rxLocalStorage } from '@/common/utils';
 import store from '../../store';
 // keepalive操作
 const mixins = {
   methods: {
-    getImage: (value) => value,
+    getImage: value => {
+      const proxy = rxLocalStorage.getItem('proxy') === '1';
+      return !proxy ? value : `${window.location.origin}/api/getimage?url=${encodeURIComponent(value)}`;
+    },
 
     resetKeepAive () {
       const conf = keepAliveVal;
