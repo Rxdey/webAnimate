@@ -100,7 +100,7 @@ export default {
     },
     // 获取章节图片
     async getImageUrl () {
-      const res = await this.$model.getImageUrl({ id: this.id, ch: 1, chs: this.$route.query.chs });
+      const res = await this.$model.getImageUrl({ id: this.id, ch: 1, chs: this.$route.query.chs, source: this.$route.query.source });
       if (!res.state) {
         this.$dialog.alert({
           title: '提示',
